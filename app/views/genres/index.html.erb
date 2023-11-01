@@ -1,0 +1,14 @@
+<h1>Genres</h1>
+
+<%= render 'shared/errors', object: @genre %>
+
+<% if current_user_admin? %>
+  <section class="admin">
+    <%= render 'form', genre: @genre %>
+  </section>
+<% end %>
+
+
+<% @genres.each do |genre| %>
+  <li><%= link_to genre.name, genre %></li>
+<% end %>

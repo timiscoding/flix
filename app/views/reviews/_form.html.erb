@@ -1,0 +1,18 @@
+<%= form_with model: [movie, review] do |f| %>
+  <%= render 'shared/errors', object: review %>
+
+  <div>
+    <%= f.label :stars %>
+    <%= f.collection_radio_buttons :stars, Review::STARS, :to_s, :to_s do |b| %>
+      <span class="star">
+        <%= b.radio_button%>
+        <%= b.label %>
+      <span>
+    <% end %>
+  </div>
+
+  <%= f.label :comment %>
+  <%= f.text_area :comment, rows: 4, placeholder: 'What did you think?' %>
+
+  <%= f.submit %>
+<% end %>

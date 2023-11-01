@@ -1,0 +1,22 @@
+<%= form_with model: user do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, autofocus: true %>
+
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <%= f.label :password_confirmation, 'Confirm password' %>
+  <%= f.password_field :password_confirmation %>
+
+  <% if user.new_record? %>
+    <%= f.submit 'Create account' %>
+  <% else %>
+    <%= f.submit 'Update account' %>
+  <% end %>
+<% end %>
